@@ -4,7 +4,13 @@
     <h2 > voici les nom des etudiants de l'informatique </h2>
         <div v-for="(item,i) in info" v-bind:key="i">
             
-        <p v-if="item.spe == 'informatique'">-- {{item.nom}}</p>
+        <p v-if="item.spe == 'informatique'">{{item.id}}-- {{item.nom}} 
+            <span>
+                <button v-on:click="deleteInfo(item.nom)">
+                     delete frr
+                </button>
+                
+            </span> </p>
 
         </div>
 </div>
@@ -14,7 +20,14 @@
 <script>
 export default {
     name:"info",
-    props:["info"]
+    props:["info"],
+    methods:{
+       deleteInfo(name){
+            this.$emit('delete',{name}) 
+          
+       }
+      
+    }
 }
 </script>
 

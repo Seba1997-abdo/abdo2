@@ -4,7 +4,7 @@
     <h2 > voici les nom des etudiants de l'electronique </h2>
         <div v-for="(item,i) in elect" v-bind:key="i">
             
-        <p v-if="item.spe == 'electronique'"> -- {{item.nom}}</p>
+        <p v-if="item.spe == 'electronique'">{{item.id}} -- {{item.nom}}</p> 
 
         </div>
 </div>

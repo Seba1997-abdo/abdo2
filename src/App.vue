@@ -2,7 +2,7 @@
   <img alt="Vue logo" src="./assets/logo.png" />
   <HelloWorld />
   <Seba />
-  <info1 v-bind:info="students" /> 
+  <info1 v-bind:info="students" @delete="deletStudents" />  
   <elec1 v-bind:elect="students" />
 </template>
 
@@ -22,14 +22,24 @@ export default {
   },
   data() {
     return {
-      students:[{nom:"Seba",spe:"informatique"},
-                 {nom:"yagoubi",spe:"informatique"},
-                 {nom:"hannachi",spe:"electronique"},
-                 {nom:"gherras",spe:"electronique"},
-                 {nom:"bob",spe:"informatique"}
+      students:[{id:1,nom:"Seba",spe:"informatique"},
+                 {id:2,nom:"yagoubi",spe:"informatique"},
+                 {id:3,nom:"hannachi",spe:"electronique"},
+                 {id:4,nom:"gherras",spe:"electronique"},
+                 {id:5,nom:"bob",spe:"informatique"} 
       ]
     }
+  },
+  methods:{
+       deletStudents(name){
+          this.students = this.students.filter(student => {
+            return student.nom != name.name
+          })
+
+       }
+
   }
+
 }
 </script>
 
